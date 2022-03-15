@@ -5,8 +5,8 @@ namespace Library.Models
     public int CustomerBookId {get;set;}
     public int BookId {get; set;}
     public int CustomerId {get;set;}
-    public virtual Book book {get; set;}
-    public virtual Customer customer {get; set;}
+    public virtual Book Book {get; set;}
+    public virtual Customer Customer {get; set;}
 
   }
 }

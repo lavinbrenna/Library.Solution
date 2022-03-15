@@ -1,0 +1,28 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Library.Models.Customer
+
+<h2>Customer Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>This customer does not have any books</p>
+}
+else
+{
+  <h4>Books the customer has:</h4>
+  <ul>
+  @foreach(var join in Model.JoinEntities)
+  {
+    <li><i>@join.Book.Title</i> by <i>@join.Book.Author</i></li>
+  }
+  </ul>
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Edit Customer", "Edit", new { id = Model.CustomerId })</p>
+<p>@Html.ActionLink("Delete Customer", "Delete", new { id = Model.CustomerId })</p>
